@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.2.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+	http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+
+    <!-- 引入配置文件 -->
+    <context:property-placeholder location="classpath:properties/*.properties" />
+    <mvc:resources location="html/" mapping="html/**"/>
+    <mvc:annotation-driven/>
+    <context:component-scan base-package="xyz.dymasun.resume" />
+    <bean id="multipartFilter" class="org.springframework.web.multipart.support.MultipartFilter">
+        <property name="multipartResolverBeanName" value="multipartResolver" />
+    </bean>
+    <bean id="ruleMail" class="xyz.dymasun.resume.rule.RuleMail" init-method="init" destroy-method="destory" >
+        <property name="mailHost" value="${mailHost}" />
+        <property name="mailProtocol" value="${mailProtocol}"/>
+        <property name="auth" value="${mailAuth}" />
+        <property name="user" value="${mailUser}" />
+        <property name="pwd" value="${mailPwd}" />
+    </bean>
+    <bean id="rulePool" class="xyz.dymasun.resume.rule.RulePool" init-method="init" destroy-method="destory">
+        <property name="corePoolSize" value="${corePoolSize}"></property>
+        <property name="maximumPoolSize" value="${maximumPoolSize}"></property>
+        <property name="keepAliveTime" value="${keepAliveTime}"></property>
+        <property name="timeUnit" value="${timeUnit}"></property>
+        <property name="workQueue" value="${workQueue}"></property>
+        <property name="capacity" value="${capacity}"></property>
+        <property name="rejectedExecutionHandler" value="${rejectedExecutionHandler}"></property>
+    </bean>
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="UTF-8" />
+        <property name="maxUploadSize" value="419430400" />
+        <!-- 设置在文件上传时允许写到内存中的最大值，以字节为单位计算，默认是10240 -->
+        <!-- 但是经实验，上传文件大小若小于此参数，则不会生成临时文件，故改为2048 -->
+        <property name="maxInMemorySize" value="104857600" />
+    </bean>
+
+    <import resource="classpath:configure/spring-http.xml"/>
+
+</beans>

@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>个人主页</title>
+		<!-- for-mobile-apps -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="" />
+		<script type="application/x-javascript">
+			function onsub() {
+				var data = {
+					name: document.getElementById("sname").value,
+					email: document.getElementById("semail").value,
+					phone: document.getElementById("sphone").value,
+					msg: document.getElementById("smsg").value
+				}
+				$.ajax({
+					url: "../home/msg",
+					type: "post",
+					data: data,
+					dataType: "json",
+					success: function(rep) {
+						if (rep.code == 204) {
+							alert("thank for your support！");
+						}
+					}
+				});
+				return false;
+			}
+			addEventListener("load", function() {
+				setTimeout(hideURLbar, 0);
+			}, false);
+
+			function hideURLbar() {
+				window.scrollTo(0, 1);
+			}
+		</script>
+		<!-- //for-mobile-apps -->
+		<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="css/font-awesome.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+		<!-- js -->
+		<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+		<script src="js/common.js"></script>
+		<!-- //js -->
+		<link href='http://fonts.googleapis.com/css?family=Oleo+Script:400,700' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic'
+		 rel='stylesheet' type='text/css'>
+		<link href="http://fonts.googleapis.com/css?family=Oswald:300,400,700" rel="stylesheet">
+
+
+		<!-- start-smooth-scrolling -->
+		<script type="text/javascript" src="js/move-top.js"></script>
+		<script type="text/javascript" src="js/easing.js"></script>
+		<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event) {
+					event.preventDefault();
+					$('html,body').animate({
+						scrollTop: $(this.hash).offset().top
+					}, 1000);
+				});
+			});
+		</script>
+		<!-- start-smooth-scrolling -->
+	</head>
+
+	<body>
+		<!-- banner -->
+		<div class="banner-figures">
+			<div class="banner">
+				<div class="container banner-drop">
+					<div class="header">
+						<div class="header-left logo">
+							<h1><a href="index.html">Elegant Resume</a></h1>
+						</div>
+						<div class="header-right">
+							<nav>
+								<ul>
+									<li class="active">
+										<a href="index.html" class="active"><span>Home</span></a>
+									</li>
+									<li>
+										<a href="#about" class="scroll"><span>About me</span></a>
+									</li>
+									<li>
+										<a href="#experience" class="scroll"><span>Experience</span></a>
+									</li>
+									<li>
+										<a href="#projects" class="scroll"><span>Projects</span></a>
+									</li>
+									<li>
+										<a href="#contact" class="scroll"><span>Contact me</span></a>
+									</li>
+								</ul>
+							</nav>
+							<div class="menu-icon animated wow zoomIn" data-wow-duration="1000ms" data-wow-delay="800ms"><span></span></div>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="name">
+						<h2>my name</h2>
+						<p> R&D Enginer </p>
+					</div>
+					<!-- <div class="social-icons animated wow bounceInDown" data-wow-duration="1000ms" data-wow-delay="800ms">
+					<ul class="top-links">
+						<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+						<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+					</ul>
+				</div> -->
+				</div>
+				<div class="banner-btm-grid-w3ls">
+					<div class="banner-left-wthree">
+						<img src="images/face.jpg" alt=" " class="img-responsive">
+						<ul class="address line">
+
+							<li>
+								<ul class="address-text">
+									<li><b>姓名 </b></li>
+									<li>: 孙鑫</li>
+								</ul>
+							</li>
+							<li>
+								<ul class="address-text">
+									<li><b>年龄 </b></li>
+									<li>: 23</li>
+								</ul>
+							</li>
+							<li>
+								<ul class="address-text">
+									<li><b>手机号码 </b></li>
+									<li>: 199-5168-1024</li>
+								</ul>
+							</li>
+							<li>
+								<ul class="address-text">
+									<li><b>电子邮件 </b></li>
+									<li>: <a href="mailto:dymasun@163.com">dymasun@163.com⬅</a></li>
+								</ul>
+							</li>
+
+						</ul>
+					</div>
+					<div class="banner-right-w3-agileits" style="background-color: #0c0c0c;">
+						<ul class="address" style="height: 288px;margin-left: 40px;margin-top: 20px;">
+							<li>
+								<ul class="address-text">
+									<li><b>求职意向</b></li>
+									<li>: web开发</li>
+								</ul>
+							</li>
+							<li>
+								<ul class="address-text">
+									<li><b>工作年限 </b></li>
+									<li>: 1年</li>
+								</ul>
+							</li>
+							<li>
+								<ul class="address-text">
+									<li><b>工作状态 </b></li>
+									<li>: 离职</li>
+								</ul>
+							</li>
+							<li>
+								<ul class="address-text">
+									<li><b>意向城市 </b></li>
+									<li>: 广州,深圳</li>
+								</ul>
+							</li>
+							<li>
+								<ul class="address-text">
+									<li><b>期望薪资 </b></li>
+									<li>: 9000</li>
+								</ul>
+							</li>
+							<li>
+								<ul class="address-text">
+									<li><b>暂居地 </b></li>
+									<li>: 江苏</li>
+								</ul>
+							</li>
+							<li>
+								<ul class="address-text">
+									<li><b>github </b></li>
+									<li>: <a href="https://github.com/dymasun" target="_blank">dymasun⬅</a></li>
+								</ul>
+							</li>
+							<li>
+								<ul class="address-text">
+									<li><b>csdn </b></li>
+									<li>: <a href="https://blog.csdn.net/Dyma_Sun/" target="_blank">Dyma_Sun⬅</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+			<script>
+				(function($){
+				  $(".menu-icon").on("click", function(){
+						$(this).toggleClass("open");
+						$(".container").toggleClass("nav-open");
+						$("nav ul li").toggleClass("animate");
+				  });
+				  
+				})(jQuery);
+			</script>
+
+		</div>
+
+		<!-- //banner -->
+		<!-- about -->
+		<div class="about" id="about">
+			<div class="container">
+				<span class="about-top-w3"></span>
+				<h4 class="title-w3ls">关于我</h4>
+				<h5 class="sub">自我介绍</h5>
+				<p class="para-w3-agile">
+					我是一枚小小的码农，喜欢用已掌握的技能来创造功能。因为喜欢，所以善于自我提升，我坚信可以做得更好。<br />
+					对于优点，我展现出来；对于缺点，我虚心改正。我期待一个优秀的平台，长期目标是CTO，三年目标是技术组长。
+				</p>
+				<p class="para-w3-agile">
+					熟知面向对象思想；擅长语言是java、js；无障碍阅读C/C++、python、C#；熟练运用http，websocket；<br />
+					会使用的webserver有tomcat,nginx,springboot；熟练springmvc，mybatis；熟练centos，ubuntu服务器；<br />
+					熟练sql，能使用redis做缓存处理；熟练工厂和单例模式，必要时可以在此之上拓展；
+				</p>
+				<div class="skills-bar">
+					<h4 class="title-w3ls">主要技能</h4>
+					<section class='bar'>
+						<section class='wrap'>
+							<div class='wrap_right'>
+								<div class='bar_group'>
+									<div class='bar_group__bar thin' label='java' show_values='true' tooltip='true' value='903'></div>
+									<div class='bar_group__bar thin' label='js' show_values='true' tooltip='true' value='656'></div>
+									<div class='bar_group__bar thin' label='AJAX' show_values='true' tooltip='true' value='735'></div>
+									<div class='bar_group__bar thin' label='SQL' show_values='true' tooltip='true' value='745'></div>
+									<div class='bar_group__bar thin' label='Linux' show_values='true' tooltip='true' value='687'></div>
+								</div>
+							</div>
+							<div class='clear'></div>
+						</section>
+					</section>
+				</div>
+			</div>
+		</div>
+		<!-- //about -->
+		<!--work-experience-->
+		<div id="experience" class="experience">
+			<div class="container">
+				<span class="about-top-w3">职业生涯</span>
+				<h4 class="title-w3ls">工作经历</h4>
+				<div class="work-info">
+					<div class="col-md-6 work-right work-right2">
+						<h4>2018.4 - 2019.1</h4>
+					</div>
+					<div class="col-md-6 work-left work-left2">
+						<h5> Home Office <span class="glyphicon glyphicon-briefcase"> </span></h5>
+						<p>
+							在家办公（兼职）<br />
+							接手东南大学网络中心的项目，与正式工一起完成web后台的开发
+						</p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="work-info">
+					<div class="col-md-6 work-left">
+						<h4>2017.10 - 2018.3 </h4>
+					</div>
+					<div class="col-md-6 work-right">
+						<h5><span class="glyphicon glyphicon-briefcase"> </span> 软件工程师</h5>
+						<p>
+							工作于南京特维软件，主要职责为web后台开发<br />
+							经历过 soapui测试接口、后台代码编写、客户对接、技术预研、软件设计
+						</p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+		</div>
+		<!-- projects -->
+		<div class="projects" id="projects">
+			<div class="container">
+				<span class="about-top-w3">项目经历 </span>
+				<h4 class="title-w3ls">主要项目</h4>
+				<div class="news-bottom">
+					<div class="news-one-wthree-agile">
+						<div class="col-md-6 news-right">
+							<a href="javascript:void(0);">
+								<h4>学测平台（即本主页） 2018.12 - (持续更新)</h4>
+							</a>
+							<p class="para-w3-agile">
+								前端使用模版，并在此之上添加了ajax做后台交互，后台为springmvc+spring，未使用数据库<br />
+								后台主要功能有SMS短信发送，邮件发送，（之后的均为使用）websocket，线程池<br />
+								更新日志:<br />
+								● 2018-12-25 完成前端文字工作<br />
+								● 2018-12-27 前端细节调整，添加到webserver中<br />
+								● 2018-12-28 '联系我'板块通过SMS将信息发送至本人手机<br />
+								● 2018-12-29 发现SMS会将关键字屏蔽导致不能发送<br />
+								● 2018-12-30 本页访问时，若使用游客用户访问则发送客户端ip至邮箱<br />
+								● 2019-01-03 添加XSS过滤器，'联系我'板块该用电子邮箱发送<br />
+							</p>
+						</div>
+						<div class="col-md-6 news-left">
+							<div class="biseller-column">
+								<a class="lightbox" href="javascript:void(0);">
+									<img src="images/p0.jpg" alt="" />
+								</a>
+							</div>
+
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="news-one-wthree-agile">
+						<div class="col-md-6 news-right">
+							<a href="javascript:void(0);">
+								<h4>学测平台(一期) 2018.4 - 2018.12</h4>
+							</a>
+							<p class="para-w3-agile">
+								学生学业水平测试平台，三层架构，学生客户端-校服务器-总服务器。<br />
+								本人负责学生客户端、校服务器、校-总api调用部分的全部编码工作。<br />
+								● 学生客户端使用winform+cefsharp编写，是具有高保密性的浏览器。
+								<br />
+								● 校服务器使用ssm+redis架构，所有接口均用JSON通信，前端与后台全部使用html+ajax通信。<br />
+								● 校-总之间为了避免数据风暴，使用线程池进行缓冲，并有重发机制以应对网络波动。<br />
+								● 服务器性能检测使用的是jprofile。
+							</p>
+						</div>
+						<div class="col-md-6 news-left">
+							<div class="biseller-column">
+								<a class="lightbox" href="javascript:void(0);">
+									<img src="images/p1.jpg" alt="" />
+								</a>
+							</div>
+
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="news-one-wthree-agile">
+						<div class="col-md-6 news-right">
+							<a href="javascript:void(0);">
+								<h4>重庆宏仁医院微信预约平台 2018.1-2018.3</h4>
+							</a>
+							<p class="para-w3-agile">
+								微信公众号上提供医疗信息的平台，用户通过该平台进行预约挂号支付等一系列业务。<br />
+								项目使用了ssh框架+redis，数据库为mysql<br />
+								本人负责的内容有<br />
+								● 与合作方进行技术对接，业务对接。<br />
+								● 使用代理节点并解决了医院内部服务器只在内网连接的问题。<br />
+								● 此外也参与项目部分代码开发的工作，bug修复
+							</p>
+						</div>
+						<div class="col-md-6 news-left">
+							<div class="biseller-column">
+								<a class="lightbox" href="javascript:void(0);">
+									<img src="images/p2.jpg" alt="" />
+								</a>
+							</div>
+
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="news-one-wthree-agile">
+						<div class="col-md-6 news-right">
+							<a href="javascript:void(0);">
+								<h4>微纱纺织原料交易APP交接 2017.12-2018.3</h4>
+							</a>
+							<p class="para-w3-agile">
+								微纱后台是面向移动APP的webapp，实现移动app与中实纺织品交易平台之间数据交互的转换。<br />
+								分布式后台，使用nginx做反代理。外部有redis，rocketmq，mysql，框架为joy-rule + spring+hibernate.
+								客户端为安卓、ios。<br />
+								该项目为合作方产品，本人需要接手该项目，掌握其业务代码，了解其中如何运转，最终成为中实纺织品交易平台的子节点。
+							</p>
+						</div>
+						<div class="col-md-6 news-left">
+							<div class="biseller-column">
+								<a class="lightbox" href="javascript:void(0);">
+									<img src="images/p3.jpg" alt="" />
+								</a>
+							</div>
+
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="news-one-wthree-agile">
+						<div class="col-md-6 news-right">
+							<a href="#four">
+								<h4>蒙特利尔银行后台 2017.10-2017.11</h4>
+							</a>
+							<p class="para-w3-agile">
+								加拿大蒙特利尔银行后台管理的项目，针对于社会各个阶层（包括个人，公司，组织等），属于IBM大型外包项目。<br />
+								webapp为websphere，所用的架构为osgi，数据格式为wsdl。数据库为MySQL。<br />
+								个人负责使用soapui进行接口测试，包括正面测试，反面测试，容错测试。
+							</p>
+						</div>
+						<div class="col-md-6 news-left">
+							<div class="biseller-column">
+								<a class="lightbox" href="javascript:void(0);">
+									<img src="images/p4.jpg" alt="" />
+								</a>
+							</div>
+
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- //projects -->
+		<!-- contact -->
+		<div class="contact" id="contact">
+			<div class="container">
+				<span class="about-top-w3">静候您的佳音</span>
+				<h4 class="title-w3ls">联系我</h4>
+				<div class="col-md-5 contact-agileits-w3layouts">
+					<form onsubmit="return onsub();">
+						<input type="text" id="sname" name="name" placeholder="姓名" required="true" />
+						<input type="email" id="semail" name="email" placeholder="电子邮件" required="false" />
+						<input type="text" id="sphone" Name="phone" placeholder="手机号码" required="" />
+						<textarea id="smsg" name="msg" placeholder="消息" required></textarea>
+						<input type="submit" value="发送">
+					</form>
+					<p><span>Phone</span>: 19951681024</p>
+					<!-- 4
+			<h5 class="sub">Looking for Address</h5>
+			<p><span>Location</span> : 345 Setwant natrer,Washington,US.</p>
+			<p><span>Email</span><a href="mailto:example@mail.com"> : mail@example.com</a></p> -->
+				</div>
+
+				<div style="margin-left: 20px;" class="col-md-6 news-left">
+					<div style="margin-top: 12px;" class="biseller-column">
+						<a class="lightbox" href="javascript:void(0);">
+							<img src="images/chat.jpg" alt="" />
+						</a>
+					</div>
+				</div>
+				<!-- <div class="col-md-7 contact-map-right">
+					<div id="map"></div>
+
+				</div> -->
+			</div>
+			<div class="bottom-margin"> </div>
+		</div>
+		<!-- //about -->
+
+		<div class="footer">
+			<div class="container">
+				<p>感谢您的来访，希望能与贵司有一个良好的合作，我将满怀信心，成为有力的支柱，谢谢！</p>
+			</div>
+		</div>
+		<!-- //footer -->
+		<script src="js/bars.js"></script>
+
+		<!-- here stars scrolling icon -->
+		<script type="text/javascript">
+			$(document).ready(function() {
+				/*
+				"http://localhost:8080/home/msg"
+				*/
+				var par = params();
+				if (par.r == "guest") {
+					$.ajax("../home/guest");
+				}
+				$('input[type="submit"]').click(function() {
+
+				});
+				var defaults = {
+					containerID: 'toTop', // fading element id
+					containerHoverID: 'toTopHover', // fading element hover id
+					scrollSpeed: 1200,
+					easingType: 'linear'
+				};
+
+				$().UItoTop({
+					easingType: 'easeOutQuart'
+				});
+
+			});
+		</script>
+		<!-- //here ends scrolling icon -->
+	</body>
+</html>
