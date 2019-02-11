@@ -16,20 +16,21 @@
 
     <!-- 引入配置文件 -->
     <context:property-placeholder location="classpath:properties/*.properties" />
+    <import resource="classpath:configure/spring-http.xml"/>
     <mvc:resources location="html/" mapping="html/**"/>
     <mvc:annotation-driven/>
-    <context:component-scan base-package="xyz.dymasun.resume" />
+    <context:component-scan base-package="xyz.dymasun.ws" />
     <bean id="multipartFilter" class="org.springframework.web.multipart.support.MultipartFilter">
         <property name="multipartResolverBeanName" value="multipartResolver" />
     </bean>
-    <bean id="ruleMail" class="xyz.dymasun.resume.rule.RuleMail" init-method="init" destroy-method="destory" >
+    <bean id="ruleMail" class="xyz.dymasun.ws.rule.RuleMail" init-method="init" destroy-method="destory" >
         <property name="mailHost" value="${mailHost}" />
         <property name="mailProtocol" value="${mailProtocol}"/>
         <property name="auth" value="${mailAuth}" />
         <property name="user" value="${mailUser}" />
         <property name="pwd" value="${mailPwd}" />
     </bean>
-    <bean id="rulePool" class="xyz.dymasun.resume.rule.RulePool" init-method="init" destroy-method="destory">
+    <bean id="rulePool" class="xyz.dymasun.ws.rule.RulePool" init-method="init" destroy-method="destory">
         <property name="corePoolSize" value="${corePoolSize}"></property>
         <property name="maximumPoolSize" value="${maximumPoolSize}"></property>
         <property name="keepAliveTime" value="${keepAliveTime}"></property>
@@ -46,6 +47,5 @@
         <property name="maxInMemorySize" value="104857600" />
     </bean>
 
-    <import resource="classpath:configure/spring-http.xml"/>
 
 </beans>
